@@ -10,7 +10,7 @@ class HuntAndKillAlgorithm():
     
     
     
-    def __init__(self, grid_size) -> None:
+    def __init__(self, grid_size:int, starting_position:tuple) -> None:
         '''
         Function -- __init__ initialize the algorithm class
 
@@ -23,10 +23,10 @@ class HuntAndKillAlgorithm():
         self.visited = [[False for i in range(self.grid_size)] for j in range(self.grid_size)]  # 2D list for logging visiting status of each cell
         
         # put starting position as (0, 0)
-        self.current_pos = (0, 0)  # tracking current visiting cell
+        self.current_pos = starting_position  # tracking current visiting cell
         self.visited_count = 1  ## trakcing how many cells have been visited
-        self.grid[0][0] = 0
-        self.visited[0][0] = True
+        self.grid[self.current_pos[0]][self.current_pos[1]] = 0
+        self.visited[self.current_pos[0]][self.current_pos[1]] = True
         
         
     
