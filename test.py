@@ -8,16 +8,27 @@ def main():
     test_body = HuntAndKillAlgorithm(test_grid_size)
     
     # test1 grid initialization
-    print("Test Grid Inivialization:")
-    print(test_body.grid)
+    print("Initial grid, starting from (0, 0):")
+    for row in test_body.grid:
+        print(row)
+    print("================================")
     
-    print("Test visited log matrix initialization:")
-    print(test_body.visited)
+    print("Initial visited Log:")
+    for row in test_body.visited:
+        print(row)
+    print("================================")
     
-    print("Test hunt and kill algorithm explores all cells:")
+    print("Running hunt-and-kill......")
     test_body.hunt_and_kill()
-    print(test_body.grid)
-    print(test_body.visited)
+    print("--------[Complete]--------")
+    print("Grid:")
+    for row in test_body.grid:
+        print(row)
+    print("-------------------------")
+    print("Visited log:")
+    for row in test_body.visited:
+        print(row)
+    print("================================")
     
     
 if __name__ == "__main__":

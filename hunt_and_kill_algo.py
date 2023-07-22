@@ -30,7 +30,7 @@ class HuntAndKillAlgorithm():
         
         
     
-    def hunt_and_kill(self):
+    def hunt_and_kill(self) -> None:
         '''
         Function -- hunt_and_kill
             the primary algorithm implementation
@@ -60,14 +60,28 @@ class HuntAndKillAlgorithm():
                 self.visited_count += 1
                 self.current_pos = (next_x, next_y)
             else:
-                for row_index in range(self.grid_size):
+                self.find_next_start_position()
+                            
+                
+    
+    def find_next_start_position(self) -> None:
+        '''
+        Function -- find_next_start_position 
+            helper method for finding the next starting position
+        '''
+        for row_index in range(self.grid_size):
                     for col_index in range(self.grid_size):
                         if ((self.visited[row_index][col_index] == False) and 
-                            ())
+                            (self.has_visited_neighbours(row_index, col_index))):
+                            self.current_pos = (row_index, col_index)
+                            self.grid[row_index][col_index] = 0
+                            self.visited[row_index][col_index] = True
+                            self.visited_count += 1
+                            return
+    
+        
                 
-                
-                
-    def has_visited_neighbours(self, x, y):
+    def has_visited_neighbours(self, x:int, y:int) -> bool:
         '''
         Function -- has_visited_neighbours 
             Helper method to check whether there is at least one visited neighbour around the given position
