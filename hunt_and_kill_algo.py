@@ -18,6 +18,16 @@ class HuntAndKillAlgorithm():
             grid_size -- how many cells on rows and columns,
                             e.g. 3 means 3x3, 4 means 4x4
         '''
+        if(not isinstance(grid_size, int)):
+            raise TypeError("Make sure grid_size is an integer")
+        
+        if(not isinstance(starting_position, tuple)):
+            raise TypeError("Make sure starting_position is a tuple")
+        
+        if ((starting_position[0] < 0) or (starting_position[0] > (grid_size - 1)) 
+            or (starting_position[1] < 0) or (starting_position[1] > (grid_size - 1))):
+            raise ValueError("Given starting position out of grid")
+        
         self.grid_size = grid_size  # Grid size
         self.grid = [[1 for i in range(self.grid_size)] for j in range(self.grid_size)]  # 2D list as the maze, 1 for unvisited, 0 for visited
         self.visited = [[False for i in range(self.grid_size)] for j in range(self.grid_size)]  # 2D list for logging visiting status of each cell
