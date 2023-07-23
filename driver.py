@@ -50,10 +50,16 @@ def draw_walls() -> None:
     canvas.pack()
     
     grid = [[Cell(col, row) for row in range(size)] for col in range(size)]
+    init_x = int(x_input.get())
+    init_y = int(y_input.get())
+    current_cell = grid[init_x][init_y]
     
+    # draw all cell walls (initialization)
     for row in range(size):
         for col in range(size):
             grid[row][col].draw_walls(canvas, TILE_SIZE)
+    
+    current_cell.draw_current_status(canvas, TILE_SIZE)
     
     new_window.mainloop()
 
