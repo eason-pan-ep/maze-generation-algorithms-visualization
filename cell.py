@@ -4,7 +4,7 @@ class Cell:
     
     global LINE_COLOUR, CURRENT_FILL, ROAD_FILL
     
-    LINE_COLOUR = "#FF9330"
+    LINE_COLOUR = "#FFFFFF"
     CURRENT_FILL = "#0F0800"
     ROAD_FILL = "#A35800"
     
@@ -26,23 +26,32 @@ class Cell:
         x, y = self.x * tile_size, self.y * tile_size
         if self.walls["top"]:
             canvas.create_line(x, y, x + tile_size, y, fill=LINE_COLOUR, width=self.border)
+        else:
+            canvas.create_line(x, y, x + tile_size, y, fill=ROAD_FILL, width=self.border)
        
         if self.walls["right"]:
             canvas.create_line(x + tile_size, y, x + tile_size, y + tile_size, fill=LINE_COLOUR, width=self.border)
+        else:
+            canvas.create_line(x + tile_size, y, x + tile_size, y + tile_size, fill=ROAD_FILL, width=self.border)
 
         if self.walls["bottom"]:
             canvas.create_line(x + tile_size, y + tile_size, x , y + tile_size, fill=LINE_COLOUR, width=self.border)
+        else:
+            canvas.create_line(x + tile_size, y + tile_size, x , y + tile_size, fill=ROAD_FILL, width=self.border)
       
         if self.walls["left"]:
             canvas.create_line(x, y + tile_size, x, y, fill=LINE_COLOUR, width=self.border)
+        else:
+            canvas.create_line(x, y + tile_size, x, y, fill=ROAD_FILL, width=self.border)
 
 
             
     def draw_current_status(self, canvas:tkinter.Canvas, tile_size:int) -> None:      
         x, y = self.x * tile_size, self.y * tile_size
-        canvas.create_rectangle(x, y, x + tile_size, y + tile_size, fill=CURRENT_FILL, outline=LINE_COLOUR)
+        canvas.create_rectangle(x, y, x + tile_size, y + tile_size, fill=CURRENT_FILL)
         
+    
     
     def draw_path(self, canvas:tkinter.Canvas, tile_size:int) -> None:
         x, y = self.x * tile_size, self.y * tile_size
-        canvas.create_rectangle(x, y, x + tile_size, y + tile_size, fill=ROAD_FILL, outline=ROAD_FILL)
+        canvas.create_rectangle(x, y, x + tile_size, y + tile_size, fill=ROAD_FILL)

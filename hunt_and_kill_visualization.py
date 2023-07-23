@@ -97,10 +97,14 @@ def generate_maze() -> None:
         next_move = hunt_and_kill(main_grid, visited_status, current_cell, grid_width)
         if next_move:
             current_cell.draw_path(canvas, TILE_SIZE)
+            remove_walls(current_cell, next_move)
+            current_cell.draw_walls(canvas, TILE_SIZE)
+            next_move.draw_walls(canvas, TILE_SIZE)
             current_cell = next_move
             current_cell.draw_current_status(canvas, TILE_SIZE)
         else:
             current_cell.draw_path(canvas, TILE_SIZE)
+            current_cell.draw_walls(canvas, TILE_SIZE)
             flag = False
 
     
@@ -113,6 +117,26 @@ def wait_interval(interval:int) -> None:
     var = tkinter.IntVar()
     new_window.after(interval, var.set, 1)
     new_window.wait_variable(var)
+
+
+
+def remove_walls(current_cell:Cell, next_cell:Cell) -> None:
+    diff_x = current_cell.x - next_cell.x
+    diff_y = current_cell.y - next_cell.y
+    
+    if diff_x == 1:
+        current_cell.walls["left"] = False
+        next_cell.walls["right"] = False
+    if diff_x == -1:
+        current_cell.walls["right"] = False
+        next_cell.walls["left"] = False
+    if diff_y == 1:
+        current_cell.walls["top"] = False
+        next_cell.walls["bottom"] = False
+    if diff_y == -1:
+        current_cell.walls["bottom"] = False
+        next_cell.walls["top"] = False
+
     
 
 
