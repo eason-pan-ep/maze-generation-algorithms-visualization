@@ -5,7 +5,7 @@ def main():
     A wild test for methods in the program
     '''
     grid_size = 10
-    starting_position = (0, 1)
+    starting_position = (2, 4)
     hunter = HuntAndKillAlgorithm(grid_size, starting_position)
     
     print("Initial grid, starting from (%d ,%d):" % (starting_position))
@@ -14,8 +14,8 @@ def main():
     print("================================")
     
     hunter.hunt_and_kill()
-    for row in hunter.grid:
-        print(row)
+    print("End")
+    
         
  
     

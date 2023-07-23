@@ -52,8 +52,8 @@ class HuntAndKillAlgorithm():
         TOTAL_CELL_COUNT = self.grid_size * self.grid_size
         
         # !! Code for visualization in Terminal !!
-        # round_count = 1
-        # print("Round %d:" % round_count)
+        round_count = 1
+        print("Round %d:" % round_count)
         # !! end !!
         
         while self.visited_count < TOTAL_CELL_COUNT: 
@@ -81,11 +81,11 @@ class HuntAndKillAlgorithm():
                 self.find_next_start_position()
                 
                 # !! Below are code for visualization in terminal !!
-                # round_count += 1
-                # for row in self.grid:
-                #     print(row)
-                # print("--------------------------------------")
-                # print("Round %d:" % round_count)
+                round_count += 1
+                for row in self.grid:
+                    print(row)
+                print("--------------------------------------")
+                print("Round %d:" % round_count)
                 # !! end !!
             
             
