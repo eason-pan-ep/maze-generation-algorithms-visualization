@@ -41,7 +41,30 @@ def main():
     
     root.mainloop()
     
+
+
+def hunt_and_kill_visualization() -> None:
+    CELL_SIZE = 10
+    PLAY_SPEED = 30
+    
+    grid_size = int(grid_size_input.get())
+    start_pos = (int(x_input.get()), int(y_input.get()))
+    
+    new_window = Toplevel()
+    maze = Canvas(new_window, width=(grid_size * CELL_SIZE), height=(grid_size * CELL_SIZE))
+    maze.pack()
+    hunter = hka.HuntAndKillAlgorithm(grid_size, start_pos)
+    
+    
+    
+    new_window.mainloop()
+
+    
 def run_hunt_and_kill() -> None:
+    '''
+    Function -- run_hunt_and_kill 
+        test funtion to print the result on the root window
+    '''
     grid_size = int(grid_size_input.get())
     start_pos = (int(x_input.get()), int(y_input.get()))
     hunter = hka.HuntAndKillAlgorithm(grid_size, start_pos)

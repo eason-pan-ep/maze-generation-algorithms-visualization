@@ -4,32 +4,20 @@ def main():
     '''
     A wild test for methods in the program
     '''
-    test_grid_size = 6
-    starting_position = (5, 2)
-    test_body = HuntAndKillAlgorithm(test_grid_size, starting_position)
-    
+    grid_size = 10
+    starting_position = (0, 1)
+    hunter = HuntAndKillAlgorithm(grid_size, starting_position)
     
     print("Initial grid, starting from (%d ,%d):" % (starting_position))
-    for row in test_body.grid:
+    for row in hunter.grid:
         print(row)
     print("================================")
     
-    print("Initial visited Log:")
-    for row in test_body.visited:
+    hunter.hunt_and_kill()
+    for row in hunter.grid:
         print(row)
-    print("================================")
-    
-    print("Running hunt-and-kill......")
-    test_body.hunt_and_kill()
-    print("--------[Complete]--------")
-    print("Grid:")
-    for row in test_body.grid:
-        print(row)
-    print("-------------------------")
-    print("Visited log:")
-    for row in test_body.visited:
-        print(row)
-    print("================================")
+        
+ 
     
     
 if __name__ == "__main__":
