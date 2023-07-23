@@ -2,10 +2,11 @@ import tkinter
 
 class Cell:
     
-    global LINE_COLOUR, CURRENT_FILL
+    global LINE_COLOUR, CURRENT_FILL, ROAD_FILL
     
     LINE_COLOUR = "#FF9330"
-    CURRENT_FILL = "#A35800"
+    CURRENT_FILL = "#0F0800"
+    ROAD_FILL = "#A35800"
     
     def __init__(self, x, y) -> None:
         self.x = x
@@ -40,3 +41,8 @@ class Cell:
     def draw_current_status(self, canvas:tkinter.Canvas, tile_size:int) -> None:      
         x, y = self.x * tile_size, self.y * tile_size
         canvas.create_rectangle(x, y, x + tile_size, y + tile_size, fill=CURRENT_FILL, outline=LINE_COLOUR)
+        
+    
+    def draw_path(self, canvas:tkinter.Canvas, tile_size:int) -> None:
+        x, y = self.x * tile_size, self.y * tile_size
+        canvas.create_rectangle(x, y, x + tile_size, y + tile_size, fill=ROAD_FILL, outline=ROAD_FILL)

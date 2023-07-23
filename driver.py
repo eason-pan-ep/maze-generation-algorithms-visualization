@@ -76,6 +76,7 @@ def generate_maze() -> None:
     init_x = int(x_input.get())
     init_y = int(y_input.get())
     current_cell = main_grid[init_x][init_y]
+    current_cell.draw_current_status(canvas, TILE_SIZE)
     
     # draw all cell walls (initialization)
     for row in range(grid_width):
@@ -88,15 +89,18 @@ def generate_maze() -> None:
         # new_window.after(500, draw_current_cell(current_cell, canvas, TILE_SIZE))
         wait_interval(INTERVAL_TIME)
         
-        current_cell.draw_current_status(canvas, TILE_SIZE)
+        
         visited_status[current_cell.x][current_cell.y] = True
         
-        current_cell.is_visited == True
+        current_cell.is_visited = True
         visited_count[0] += 1
         next_move = hunt_and_kill(main_grid, visited_status, current_cell, grid_width)
         if next_move:
+            current_cell.draw_path(canvas, TILE_SIZE)
             current_cell = next_move
+            current_cell.draw_current_status(canvas, TILE_SIZE)
         else:
+            current_cell.draw_path(canvas, TILE_SIZE)
             flag = False
 
     
