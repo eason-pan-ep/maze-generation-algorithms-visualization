@@ -24,6 +24,9 @@ class HuntAndKillAlgorithm():
         if(not isinstance(starting_position, tuple)):
             raise TypeError("Make sure starting_position is a tuple")
         
+        if(not isinstance(starting_position[0], int) or (not isinstance(starting_position[1], int))):
+            raise TypeError("Make sure the given position is a tuple of integers")
+        
         if ((starting_position[0] < 0) or (starting_position[0] > (grid_size - 1)) 
             or (starting_position[1] < 0) or (starting_position[1] > (grid_size - 1))):
             raise ValueError("Given starting position out of grid")

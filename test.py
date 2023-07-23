@@ -8,7 +8,7 @@ def main():
     starting_position = (5, 2)
     test_body = HuntAndKillAlgorithm(test_grid_size, starting_position)
     
-    # test1 grid initialization
+    
     print("Initial grid, starting from (%d ,%d):" % (starting_position))
     for row in test_body.grid:
         print(row)
