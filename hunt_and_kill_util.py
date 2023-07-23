@@ -25,16 +25,21 @@ def hunt_and_kill(main_grid:list, visited_status:list, current_cell:cell.Cell, g
         # visited_status[next_x][next_y] = True
         # visited_count[0] += 1
         return main_grid[next_x][next_y]
-    else:  # randomly pick the next start position
-        for row in range(grid_width):
+    else:  
+        return
+
+
+
+def find_next_start(grid_width:int, visited_status:list, main_grid:list) -> cell.Cell | None:
+    # randomly pick the next start position
+    for row in range(grid_width):
             for col in range(grid_width):
                 if((visited_status[row][col] == False) and
                    (has_visited_neighbours(main_grid[row][col], visited_status, grid_width))):
                     # visited_status[row][col] = True
                     # visited_count[0] += 1
-                    return main_grid[row][col]
-        return
-                    
+                    return main_grid[row][col]     
+    return          
                     
                     
 
@@ -61,6 +66,9 @@ def has_visited_neighbours(current_cell:cell.Cell, visited_status:list, grid_wid
     
     return False
             
+
+
+
 
 
     
