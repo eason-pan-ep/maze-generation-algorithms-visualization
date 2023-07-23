@@ -18,6 +18,7 @@ def main():
     screen = pygame.display.set_mode((screen_width, scrren_height))
     clock = pygame.time.Clock()
     
+    # initialize the grid
     grid = [[Cell(col, row) for row in range(ROW_COUNT)] for col in range(COLUMN_COUNT)]
     current_position = grid[0][0]
     
@@ -40,10 +41,6 @@ def main():
         clock.tick(30)
     # !! standard pygame framework ends !!
     
-
-
-
-
 
 
 if __name__ == "__main__":
