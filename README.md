@@ -8,3 +8,6 @@
 
 ## How to run
 in terminal `python3 hunt_and_kill_visualization.py`
+
+## Required Package
+tkinter
