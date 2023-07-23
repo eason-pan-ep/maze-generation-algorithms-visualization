@@ -35,13 +35,13 @@ def main():
     y_input = Entry(root, width=5)
     y_input.grid(row=1, column=4)
     
-    hunt_button = Button(root, text="Start Hunting", command=draw_walls)
+    hunt_button = Button(root, text="Start Hunting", command=generate_maze)
     hunt_button.grid(row=2, column=0, pady=30, columnspan=5)
     
     
     root.mainloop()
 
-def draw_walls() -> None:
+def generate_maze() -> None:
     size = int(grid_size_input.get())
     new_window = Toplevel()
     new_window.geometry("%dx%d" % (size*TILE_SIZE, size*TILE_SIZE))
