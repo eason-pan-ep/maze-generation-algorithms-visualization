@@ -1,7 +1,6 @@
 from tkinter import *
 from cell import *
 from hunt_and_kill_util import *
-import time
 
 def main():
     '''
@@ -10,11 +9,13 @@ def main():
     '''
     
     global TILE_SIZE
+    global INTERVAL_TIME
     global grid_size_input
     global x_input
     global y_input
     
     TILE_SIZE = 50
+    INTERVAL_TIME = 100
     
     root = Tk()
     root.title("Hunt-and-Kill Visualization")
@@ -82,22 +83,32 @@ def generate_maze() -> None:
             main_grid[row][col].draw_walls(canvas, TILE_SIZE)
     
     # test run, for 5 iterations
-    flag = 5
+    flag = 50
     while flag > 0:
         # new_window.after(500, draw_current_cell(current_cell, canvas, TILE_SIZE))
+        wait_interval(INTERVAL_TIME)
+        
         current_cell.draw_current_status(canvas, TILE_SIZE)
         visited_status[current_cell.x][current_cell.y] = True
-
+        
         current_cell.is_visited == True
         visited_count[0] += 1
         next_move = hunt_and_kill(main_grid, visited_status, current_cell, grid_width)
         if next_move:
             current_cell = next_move
-    flag -= 1
+        flag -= 1
 
     
     
     new_window.mainloop()
+    
+    
+
+def wait_interval(interval:int) -> None:
+    var = tkinter.IntVar()
+    new_window.after(interval, var.set, 1)
+    new_window.wait_variable(var)
+    
 
 
 if __name__ == "__main__":
