@@ -7,4 +7,4 @@
 - Implement visualizations of the maze generation progress
 
 ## How to run
-in terminal `python3 driver.py`
+in terminal `python3 hunt_and_kill_visualization.py`
