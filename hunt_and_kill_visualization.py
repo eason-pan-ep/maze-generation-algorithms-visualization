@@ -1,6 +1,6 @@
 from tkinter import *
 from cell import *
-from hunt_and_kill_util import *
+import hunt_and_kill_util as hak
 
 def main():
     '''
@@ -68,7 +68,7 @@ def generate_maze() -> None:
     canvas.pack()
     
     # initialize the main grid using user input as its size
-    main_grid = [[cell.Cell(col, row) for row in range(grid_width)] for col in range(grid_width)]
+    main_grid = [[Cell(col, row) for row in range(grid_width)] for col in range(grid_width)]
     visited_status = [[False for row in range(grid_width)] for col in range(grid_width)]
     visited_count = [0]
     
@@ -85,7 +85,7 @@ def generate_maze() -> None:
     
     # test run, for 5 iterations
     flag = True
-    while flag:
+    while visited_count[0] < cell_count:
         # new_window.after(500, draw_current_cell(current_cell, canvas, TILE_SIZE))
         wait_interval(INTERVAL_TIME)
         
@@ -94,7 +94,7 @@ def generate_maze() -> None:
         
         current_cell.is_visited = True
         visited_count[0] += 1
-        next_move = hunt_and_kill(main_grid, visited_status, current_cell, grid_width)
+        next_move = hak.hunt_and_kill(main_grid, visited_status, current_cell, grid_width)
         if next_move:
             current_cell.draw_path(canvas, TILE_SIZE)
             remove_walls(current_cell, next_move)
@@ -103,9 +103,19 @@ def generate_maze() -> None:
             current_cell = next_move
             current_cell.draw_current_status(canvas, TILE_SIZE)
         else:
-            current_cell.draw_path(canvas, TILE_SIZE)
-            current_cell.draw_walls(canvas, TILE_SIZE)
-            flag = False
+            next_move = hak.find_next_start(grid_width, visited_status, main_grid)
+            if next_move:
+                current_cell.draw_path(canvas, TILE_SIZE)
+                remove_walls(current_cell, next_move)
+                current_cell.draw_walls(canvas, TILE_SIZE)
+                next_move.draw_walls(canvas, TILE_SIZE)
+                current_cell = next_move
+                current_cell.draw_current_status(canvas, TILE_SIZE)
+            else:
+                break
+            
+    current_cell.draw_path(canvas, TILE_SIZE)
+    current_cell.draw_walls(canvas, TILE_SIZE)  
 
     
     
