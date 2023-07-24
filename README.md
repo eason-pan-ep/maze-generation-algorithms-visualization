@@ -1,4 +1,4 @@
-# hunt-and-kill-algorithm-visualization
+# Hunt-and-kill-algorithm-visualization
 
 ### Using the hunt-and-kill algorithm to generate mazes, coursework for CS5800 - Algorithms
 
@@ -6,8 +6,12 @@
 - Implement the hunt-and-kill algorithm that can generate mazes with different sizes
 - Implement visualizations of the maze generation and show how a maze is gradually generated
 
-## How to run
-in terminal `python3 hunt_and_kill_visualization.py`
+## How to Run
+get to the program's main directory in the terminal and run `python3 hunt_and_kill_visualization.py`.
 
 ## Required Package
-tkinter
+Tkinter
+
+## Limitations
+- code is not yet optimized for error prevention and error handling 
+- not guaranteed to have a maze that can be traversed through from a particular cell to another particular cell
