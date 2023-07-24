@@ -8,7 +8,15 @@ class Cell:
     CURRENT_FILL = "#0F0800"
     ROAD_FILL = "#A35800"
     
-    def __init__(self, x, y) -> None:
+    def __init__(self, x, y, border_size) -> None:
+        '''
+        Method -- __init__ constructor
+
+        Parameters:
+            x -- col / x coordinate of this cell
+            y -- row / y coordinate of this cell
+            border_size -- wall thickness
+        '''
         self.x = x
         self.y = y
         self.walls = {
@@ -18,11 +26,19 @@ class Cell:
             "right" : True,
         }
         self.is_visited = False
-        self.border = 3
+        self.border = border_size
         
         
         
     def draw_walls(self, canvas:tkinter.Canvas, tile_size:int) -> None:
+        '''
+        Method -- draw_walls 
+            draw walls of this cell, depending on the wall status in it's self.walls
+
+        Parameters:
+            canvas -- the main maze canvas
+            tile_size -- size of each tile on the canvas
+        '''
         x, y = self.x * tile_size, self.y * tile_size
         if self.walls["top"]:
             canvas.create_line(x, y, x + tile_size, y, fill=LINE_COLOUR, width=self.border)
@@ -46,12 +62,29 @@ class Cell:
 
 
             
-    def draw_current_status(self, canvas:tkinter.Canvas, tile_size:int) -> None:      
+    def draw_current_status(self, canvas:tkinter.Canvas, tile_size:int) -> None:
+        '''
+        Method -- draw_current_status
+            draw the colour as the head
+
+        Parameters:
+            canvas -- the main maze canvas
+            tile_size -- size of each tile on the canvas
+        '''
         x, y = self.x * tile_size, self.y * tile_size
         canvas.create_rectangle(x, y, x + tile_size, y + tile_size, fill=CURRENT_FILL)
         
     
     
     def draw_path(self, canvas:tkinter.Canvas, tile_size:int) -> None:
+        '''
+        Method -- draw_path 
+
+        Parameters:
+            canvas -- the main maze canvas
+            tile_size -- size of each tile on the canvas
+        '''
         x, y = self.x * tile_size, self.y * tile_size
         canvas.create_rectangle(x, y, x + tile_size, y + tile_size, fill=ROAD_FILL)
+        
+        
