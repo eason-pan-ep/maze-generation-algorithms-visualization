@@ -137,7 +137,7 @@ def running_config() -> list | None:
     '''
     
     input_size = int(grid_size_input.get())
-    if input_size // 10 == 1:
+    if input_size // 10 <= 1:
         return
     elif interval_time == 0:  # reserved for quick demo purposes
         return
