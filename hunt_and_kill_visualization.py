@@ -70,7 +70,7 @@ def generate_maze() -> None:
     new_window.geometry("%dx%d" % (grid_width*tile_size, grid_width*tile_size)) 
     
     # initialize the canvas for displaying the maze
-    canvas = Canvas(new_window, width=grid_width*tile_size, height=grid_width*tile_size)
+    canvas = Canvas(new_window, width=grid_width*tile_size, height=grid_width*tile_size, background="#2B2B2B")
     canvas.pack()
     
     # initialize the main grid using user input as its size
@@ -118,7 +118,7 @@ def generate_maze() -> None:
     
     # draw the last cell       
     current_cell.draw_path(canvas, tile_size)
-    current_cell.draw_walls(canvas, tile_size)  
+    current_cell.draw_walls(canvas, tile_size)
     
     
     new_window.mainloop()
