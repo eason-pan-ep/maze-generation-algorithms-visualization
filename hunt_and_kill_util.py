@@ -43,7 +43,7 @@ def hunt_and_kill(main_grid:list, visited_status:list, current_cell:cell.Cell, g
 
 
 
-def find_next_start(grid_width:int, visited_status:list, main_grid:list) -> cell.Cell | None:
+def find_next_start(grid_width:int, visited_status:list, main_grid:list) -> tuple | None:
     '''
     Function -- find_next_start
         go for the next cell that hasn't been visited, and it has at least one visited neighbour
@@ -55,19 +55,20 @@ def find_next_start(grid_width:int, visited_status:list, main_grid:list) -> cell
 
     Returns:
         None, if there isn't any position for a new start
-        a Cell of next visit position
+        a tuple of the Cells in the format of (next_cell, from_neighbour)
     '''
     # randomly pick the next start position
     for row in range(grid_width):
             for col in range(grid_width):
+                possible_neighbour = has_visited_neighbours(main_grid[row][col], visited_status, grid_width)
                 if((visited_status[row][col] == False) and
-                   (has_visited_neighbours(main_grid[row][col], visited_status, grid_width))):
-                    return main_grid[row][col]     
+                   (possible_neighbour)):
+                    return (main_grid[row][col], main_grid[possible_neighbour[0]][possible_neighbour[1]])
     return          
                     
                     
 
-def has_visited_neighbours(current_cell:cell.Cell, visited_status:list, grid_width:int) -> bool:
+def has_visited_neighbours(current_cell:cell.Cell, visited_status:list, grid_width:int) -> None | tuple:
     '''
         Function -- has_visited_neighbours 
             Helper method to check whether there is at least one visited neighbour around the given position
@@ -77,8 +78,8 @@ def has_visited_neighbours(current_cell:cell.Cell, visited_status:list, grid_wid
             y -- y coordinate of current position
 
         Returns:
-            True, if there is at least 1 visited neighbour
-            otherwise, return False
+            the neighbour's coordinate if found one
+            return None if not
         '''
     for move in MOVING_DIRECTIONS:
         neighbour_x = current_cell.x + move[0]
@@ -86,9 +87,17 @@ def has_visited_neighbours(current_cell:cell.Cell, visited_status:list, grid_wid
         if((0 <= neighbour_x < grid_width) and 
             (0 <= neighbour_y < grid_width) and 
             (visited_status[neighbour_x][neighbour_y] == True)):
-            return True
+            return (neighbour_x, neighbour_y)
     
-    return False
+    return
             
-            
+
+
+# def find_a_neighbour(current_cell:cell.Cell, visited_status:list, grid_width:int) -> cell.Cell:
+#     for move in MOVING_DIRECTIONS:
+#         neighbour_x = current_cell.x + move[0]
+#         neighbour_y = current_cell.y + move[1]
+#         if((0 <= neighbour_x < grid_width) and 
+#             (0 <= neighbour_y < grid_width) and 
+#             (visited_status[neighbour_x][neighbour_y] == True)):
     

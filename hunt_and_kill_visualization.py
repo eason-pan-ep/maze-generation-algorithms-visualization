@@ -89,6 +89,7 @@ def generate_maze() -> None:
         for col in range(grid_width):
             main_grid[row][col].draw_walls(canvas, tile_size)
 
+    
     while visited_count[0] < cell_count:
         wait_interval()
         
@@ -105,14 +106,20 @@ def generate_maze() -> None:
             current_cell = next_move
             current_cell.draw_current_status(canvas, tile_size)
         else:  # when reaching to a deadend, go and randomly find the next starting position
-            next_move = hak.find_next_start(grid_width, visited_status, main_grid)
-            if next_move:
+            next_neighbour_tuple = hak.find_next_start(grid_width, visited_status, main_grid)
+            if next_neighbour_tuple:
+                next_move = next_neighbour_tuple[0]
+                from_neighbour_cell = next_neighbour_tuple[1]
                 current_cell.draw_path(canvas, tile_size)
                 remove_walls(current_cell, next_move)
                 current_cell.draw_walls(canvas, tile_size)
                 next_move.draw_walls(canvas, tile_size)
+                
+                # Connect the main maze with the new starting cell
+                remove_walls(from_neighbour_cell, next_move)
+                from_neighbour_cell.draw_walls(canvas, tile_size)
+                next_move.draw_walls(canvas, tile_size)
                 current_cell = next_move
-                current_cell.draw_current_status(canvas, tile_size)
             else:
                 break
     
