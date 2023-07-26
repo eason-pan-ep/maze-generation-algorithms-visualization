@@ -14,31 +14,34 @@ def main() -> None:
     
     root = Tk()
     root.title("Hunt-and-Kill Visualization")
-    root.geometry("500x500")
+    root.geometry("500x400+400+400")
     
-    grid_size_label = Label(root, text="Grid Size:")
-    grid_size_label.grid(row=0, column=0, padx=20, pady=10)
+    # title_label = Label(root, text="Hunt & Kill ALgorithm Visualization", font=("Helvetica", 26))
+    # title_label.grid(row=0, column=0, columnspan=5, padx=50, pady=(10, 0))
     
-    grid_size_input = Entry(root, width="10")
-    grid_size_input.grid(row=0, column=1, columnspan=4)
+    grid_size_label = Label(root, text="Grid Size:", font=("Helvetica", 20))
+    grid_size_label.grid(row=1, column=0, padx=(60, 0), pady=(40, 0), sticky="W")
     
-    position_label = Label(root, text="Starting Position:")
-    position_label.grid(row=1, column=0, padx=20, pady=10)
+    grid_size_input = Entry(root, width=7, font=("Helvetica", 20))
+    grid_size_input.grid(row=2, column=0, padx=(60, 0), sticky="W")
     
-    x_label = Label(root, text="X:")
-    x_label.grid(row=1, column=1)  
+    position_label = Label(root, text="Starting Position:", font=("Helvetica", 20))
+    position_label.grid(row=1, column=1, padx=(40, 0), pady=(20, 0), sticky="W", columnspan=4)
     
-    x_input = Entry(root, width=5)
-    x_input.grid(row=1, column=2)
+    x_label = Label(root, text="X:", font=("Helvetica", 20))
+    x_label.grid(row=2, column=1, padx=(40, 0), sticky="E")  
     
-    y_label_input = Label(root, text="Y:")
-    y_label_input.grid(row=1, column=3)
+    x_input = Entry(root, width=5, font=("Helvetica", 20))
+    x_input.grid(row=2, column=2, sticky="W")
     
-    y_input = Entry(root, width=5)
-    y_input.grid(row=1, column=4)
+    y_label = Label(root, text="Y:", font=("Helvetica", 20))
+    y_label.grid(row=2, column=3, sticky="E")
     
-    hunt_button = Button(root, text="Start Hunting", command=generate_maze)
-    hunt_button.grid(row=2, column=0, pady=30, columnspan=5)
+    y_input = Entry(root, width=5, font=("Helvetica", 20))
+    y_input.grid(row=2, column=4, sticky="W", padx=(0, 100))
+    
+    hunt_button = Button(root, text="Happy Hunting", command=generate_maze, font=("Helvetica", 16), padx=10, pady=5)
+    hunt_button.grid(row=3, column=0, pady=40, padx=100, columnspan=5, sticky="E")
     
     
     root.mainloop()
@@ -67,7 +70,7 @@ def generate_maze() -> None:
     grid_width = int(grid_size_input.get())
     cell_count = grid_width * grid_width
     new_window = Toplevel()
-    new_window.geometry("%dx%d" % (grid_width*tile_size, grid_width*tile_size)) 
+    new_window.geometry("%dx%d+600+600" % (grid_width*tile_size, grid_width*tile_size)) 
     
     # initialize the canvas for displaying the maze
     canvas = Canvas(new_window, width=grid_width*tile_size, height=grid_width*tile_size, background="#2B2B2B")
