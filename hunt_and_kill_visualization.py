@@ -14,7 +14,7 @@ def main() -> None:
     
     root = Tk()
     root.title("Hunt-and-Kill Visualization")
-    root.geometry("500x400+400+400")
+    root.geometry("500x400+200+200")
     
     # title_label = Label(root, text="Hunt & Kill ALgorithm Visualization", font=("Helvetica", 26))
     # title_label.grid(row=0, column=0, columnspan=5, padx=50, pady=(10, 0))
@@ -26,7 +26,7 @@ def main() -> None:
     grid_size_input.grid(row=2, column=0, padx=(60, 0), sticky="W")
     
     position_label = Label(root, text="Starting Position:", font=("Helvetica", 20))
-    position_label.grid(row=1, column=1, padx=(40, 0), pady=(20, 0), sticky="W", columnspan=4)
+    position_label.grid(row=1, column=1, padx=(40, 0), pady=(40, 0), sticky="W", columnspan=4)
     
     x_label = Label(root, text="X:", font=("Helvetica", 20))
     x_label.grid(row=2, column=1, padx=(40, 0), sticky="E")  
@@ -38,17 +38,19 @@ def main() -> None:
     y_label.grid(row=2, column=3, sticky="E")
     
     y_input = Entry(root, width=5, font=("Helvetica", 20))
-    y_input.grid(row=2, column=4, sticky="W", padx=(0, 100))
+    y_input.grid(row=2, column=4, sticky="W")
     
-    hunt_button = Button(root, text="Happy Hunting", command=generate_maze, font=("Helvetica", 16), padx=10, pady=5)
-    hunt_button.grid(row=3, column=0, pady=40, padx=100, columnspan=5, sticky="E")
+    hunt_button = Button(root, text="Happy Hunting", command=lambda:generate_maze(0), font=("Helvetica", 16), padx=10, pady=5)
+    hunt_button.grid(row=3, column=0, pady=(40, 0), columnspan=5, sticky="E")
     
-    
+    Demo_button = Button(root, text="Demo Mode", command=lambda:generate_maze(1), font=("Helvetica", 16), padx=10, pady=5)
+    Demo_button.grid(row=4, column=0, pady=(5, 0), columnspan=5, sticky="E")
+
     root.mainloop()
     
     
 
-def generate_maze() -> None:
+def generate_maze(speed_mode:int) -> None:
     '''
     Function -- generate_maze
         the visualization window
@@ -59,6 +61,9 @@ def generate_maze() -> None:
     wall_thickness = 3
     tile_size = 50
     interval_time = 100
+    
+    if(speed_mode == 1):
+        interval_time = 400
     
     # create pop up window using the size of user input as its width and height
     new_config = running_config()
@@ -73,7 +78,7 @@ def generate_maze() -> None:
     new_window.geometry("%dx%d+600+600" % (grid_width*tile_size, grid_width*tile_size)) 
     
     # initialize the canvas for displaying the maze
-    canvas = Canvas(new_window, width=grid_width*tile_size, height=grid_width*tile_size, background="#2B2B2B")
+    canvas = Canvas(new_window, width=grid_width*tile_size, height=grid_width*tile_size, background="#2C2C2C")
     canvas.pack()
     
     # initialize the main grid using user input as its size
