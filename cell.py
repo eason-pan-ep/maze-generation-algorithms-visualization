@@ -6,7 +6,7 @@ class Cell:
     
     LINE_COLOUR = "#FFFFFF"
     CURRENT_FILL = "#E4EFFF"
-    ROAD_FILL = "#A35800"
+    ROAD_FILL = "#E4987F"
     
     def __init__(self, x, y, border_size) -> None:
         '''
