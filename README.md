@@ -14,4 +14,3 @@ Tkinter
 
 ## Limitations
 - code is not yet optimized for error prevention and error handling 
-- not guaranteed to have a maze that can be traversed through from a particular cell to another particular cell
