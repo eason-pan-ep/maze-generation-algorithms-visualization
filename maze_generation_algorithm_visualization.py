@@ -40,21 +40,35 @@ def main() -> None:
     y_input = Entry(root, width=5, font=("Helvetica", 20))
     y_input.grid(row=2, column=4, sticky="W")
     
-    hunt_button = Button(root, text="Happy Hunting", command=lambda:generate_maze(0), font=("Helvetica", 16), padx=10, pady=5)
+    hunt_button = Button(root, text="Hunt & Kill", command=lambda:generate_maze(0), font=("Helvetica", 16), padx=10, pady=5)
     hunt_button.grid(row=3, column=0, pady=(40, 0), columnspan=5, sticky="E")
     
-    Demo_button = Button(root, text="Demo Mode", command=lambda:generate_maze(1), font=("Helvetica", 16), padx=10, pady=5)
-    Demo_button.grid(row=4, column=0, pady=(5, 0), columnspan=5, sticky="E")
+    prim_button = Button(root, text="Prim's", command=lambda:generate_maze(1), font=("Helvetica", 16), padx=10, pady=5)
+    prim_button.grid(row=4, column=0, columnspan=5, sticky="E")
+    
+    kruskal_button = Button(root, text="Kruskal's", command=lambda:generate_maze(3), font=("Helvetica", 16), padx=10, pady=5)
+    kruskal_button.grid(row=5, column=0, columnspan=5, sticky="E")
 
     root.mainloop()
     
     
 
-def generate_maze(speed_mode:int) -> None:
+def generate_maze(algorithm_selection:int) -> None:
     '''
-    Function -- generate_maze
-        the visualization window
+    Function -- generate_maze 
+
+    Parameters:
+        algorithm_selection -- selection of algorithm to be visualized
+                            0 - hunt-and-kill
+                            1 - Prim's
+                            2 - Kruskal's
+
+    Raises:
+        ValueError: when algo selection isn't working correctly (in range of 1-3, include 3)
     '''
+    
+    if algorithm_selection < 0 or algorithm_selection > 3:
+        raise ValueError("Selection arg error")
     
     global tile_size, interval_time, wall_thickness, new_window
     
@@ -62,8 +76,6 @@ def generate_maze(speed_mode:int) -> None:
     tile_size = 50
     interval_time = 100
     
-    if(speed_mode == 1):
-        interval_time = 400
     
     # create pop up window using the size of user input as its width and height
     new_config = running_config()
@@ -97,12 +109,27 @@ def generate_maze(speed_mode:int) -> None:
         for col in range(grid_width):
             main_grid[row][col].draw_walls(canvas, tile_size)
 
-    
-    # call hunt-and-kill visualization
-    hunt_and_kill_visualization(current_cell, visited_count, cell_count, visited_status, main_grid, grid_width,canvas)
+    # run different algorithm visualization based on selection
+    if algorithm_selection == 0:    
+        # call hunt-and-kill visualization
+        hunt_and_kill_visualization(current_cell, visited_count, cell_count, visited_status, main_grid, grid_width,canvas)
+    elif algorithm_selection == 1:
+        prim_visualization()
+    elif algorithm_selection == 2:
+        kruskal_visualization()
    
     new_window.mainloop()
     
+
+
+
+def prim_visualization() -> None:
+    pass
+
+
+
+def kruskal_visualization() -> None:
+    pass
 
 
 
