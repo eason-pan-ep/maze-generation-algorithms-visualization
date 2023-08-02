@@ -98,6 +98,28 @@ def generate_maze(speed_mode:int) -> None:
             main_grid[row][col].draw_walls(canvas, tile_size)
 
     
+    # call hunt-and-kill visualization
+    hunt_and_kill_visualization(current_cell, visited_count, cell_count, visited_status, main_grid, grid_width,canvas)
+   
+    new_window.mainloop()
+    
+
+
+
+def hunt_and_kill_visualization(current_cell:Cell ,visited_count:list, cell_count:int, visited_status:list, main_grid:list, grid_width:int, canvas:Canvas) -> None:
+    '''
+    Function -- hunt_and_kill_visualization 
+        The visualization sequence for hunt-and-kill algorithm
+
+    Parameters:
+        current_cell -- the starting cell
+        visited_count -- the mutable list only has 1 element for counting visited cells
+        cell_count -- the total cells on the main grid
+        visited_status -- 2D array storing visiting status of each cell on the grid
+        main_grid -- 2D array that has all the Cell objects on each grid
+        grid_width -- the width of the main grid
+        canvas -- the visualization canvas to draw maze
+    '''
     while visited_count[0] < cell_count:
         wait_interval()
         
@@ -134,9 +156,6 @@ def generate_maze(speed_mode:int) -> None:
     # draw the last cell       
     current_cell.draw_path(canvas, tile_size)
     current_cell.draw_walls(canvas, tile_size)
-    
-    
-    new_window.mainloop()
     
 
 

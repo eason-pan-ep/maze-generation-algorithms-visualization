@@ -93,11 +93,5 @@ def has_visited_neighbours(current_cell:cell.Cell, visited_status:list, grid_wid
             
 
 
-# def find_a_neighbour(current_cell:cell.Cell, visited_status:list, grid_width:int) -> cell.Cell:
-#     for move in MOVING_DIRECTIONS:
-#         neighbour_x = current_cell.x + move[0]
-#         neighbour_y = current_cell.y + move[1]
-#         if((0 <= neighbour_x < grid_width) and 
-#             (0 <= neighbour_y < grid_width) and 
-#             (visited_status[neighbour_x][neighbour_y] == True)):
+
     
