@@ -1,13 +1,13 @@
-# Hunt-and-kill-algorithm-visualization
+# Maze-generation-algorithms-visualization
 
-### Using the hunt-and-kill algorithm to generate mazes, coursework for CS5800 - Algorithms
+### Visualizing Prim's, Kruskal's and hunt-and-kill algorithm to generate mazes, coursework for CS5800 - Algorithms
 
 ## Goals
-- Implement the hunt-and-kill algorithm that can generate mazes with different sizes
+- Implement these algorithms that can generate mazes with different sizes
 - Implement visualizations of the maze generation and show how a maze is gradually generated
 
 ## How to Run
-get to the program's main directory in the terminal and run `python3 hunt_and_kill_visualization.py`.
+get to the program's main directory in the terminal and run `python3 maze_generation_algorithms_visualization.py`.
 
 ## Required Package
 Tkinter
