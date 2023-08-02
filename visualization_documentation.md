@@ -23,6 +23,8 @@ The main challenge to visualize maze generations are rendering walls during the 
 ### Naming of Components
 ![Figure 0 - Naming of Components](./documentation_imgs/figure_0.png)
 
+![Figure 1 - illustration of cell as a tile concept](./documentation_imgs/figure_1.png)
+
 ### Render the Head
 For better visualization, we can highlight the head of a path when it's generating. To do so, simply **call the method in *Cell*** `cell_name.draw_current_status(canvas, tile_size)`. Call this method only for the head.
 
@@ -31,8 +33,6 @@ When the head moves to a new cell, the cell that just visited becomes part of th
 
 ### Draw Cell Walls
 Considering each cell as a tile but not a dot is the first intuition for this visualization. And each tile has 4 walls `Top, Bottom, Left, Right`. 
-
-![Figure 1 - illustration of cell as a tile concept](./documentation_imgs/figure_1.png)
 
 To render walls of a cell, **call the method in *Cell***, `cell_name.draw_walls(canvas, tile_size)`. The method draws walls depending on their status. The wall rendering won't update automatically when you remove a wall; Thus, you would always want to draw walls again after removing or adding walls to a cell.
 
