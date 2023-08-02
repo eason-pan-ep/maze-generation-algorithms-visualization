@@ -13,7 +13,7 @@ def main() -> None:
     global grid_size_input, x_input, y_input
     
     root = Tk()
-    root.title("Hunt-and-Kill Visualization")
+    root.title("Maze Generation Visualization")
     root.geometry("500x400+200+200")
     
     # title_label = Label(root, text="Hunt & Kill ALgorithm Visualization", font=("Helvetica", 26))
@@ -88,6 +88,14 @@ def generate_maze(algorithm_selection:int) -> None:
     cell_count = grid_width * grid_width
     new_window = Toplevel()
     new_window.geometry("%dx%d+600+600" % (grid_width*tile_size, grid_width*tile_size)) 
+    new_window_title = ""
+    if algorithm_selection == 0:
+        new_window_title = "Hunt & Kill Visualization"
+    elif algorithm_selection == 1:
+        new_window_title = "Prim's Visualization"
+    elif algorithm_selection == 2:
+        new_window_title = "Kruskal's Visualization"
+    new_window.title(new_window_title)
     
     # initialize the canvas for displaying the maze
     canvas = Canvas(new_window, width=grid_width*tile_size, height=grid_width*tile_size, background="#2C2C2C")
