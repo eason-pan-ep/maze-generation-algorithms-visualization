@@ -20,7 +20,7 @@ The main algorithm files are better be seperated, except the parts that involve 
 ## Part 2 - Visualization Logics & Functions
 The main challenge to visualize maze generations are rendering walls during the algorithm running. To solve it, we treat every cell as a tile instead of a dot.
 
-### Naming of Components
+### Components
 ![Figure 0 - Naming of Components](./documentation_imgs/figure_0.png)
 
 ![Figure 1 - illustration of cell as a tile concept](./documentation_imgs/figure_1.png)
