@@ -4,9 +4,9 @@ class Cell:
     
     global LINE_COLOUR, CURRENT_FILL, ROAD_FILL
     
-    LINE_COLOUR = "#AD9272"
+    LINE_COLOUR = "#FFFFFF"
     CURRENT_FILL = "#E4EFFF"
-    ROAD_FILL = "#1E1D1C"
+    ROAD_FILL = "#E4987F"
     
     def __init__(self, x, y, border_size) -> None:
         '''
