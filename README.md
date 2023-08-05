@@ -9,8 +9,7 @@
 ## How to Run
 get to the program's main directory in the terminal and run `python3 maze_generation_algorithms_visualization.py`.
 
-For Prim's algorithm:
-(turtle has been imported)
+For Prim's algorithm (turtle has been imported):
 - Open terminal, run 'python3 maze.py'.
 - Input an integer (the side length of the square maze the user wants).
 
