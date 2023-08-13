@@ -43,11 +43,11 @@ def main() -> None:
     hunt_button = Button(root, text="Hunt & Kill", command=lambda:generate_maze(0), font=("Helvetica", 16), padx=10, pady=5)
     hunt_button.grid(row=3, column=0, pady=(40, 0), columnspan=5, sticky="E")
     
-    prim_button = Button(root, text="Prim's", command=lambda:generate_maze(1), font=("Helvetica", 16), padx=10, pady=5)
-    prim_button.grid(row=4, column=0, columnspan=5, sticky="E")
+    # prim_button = Button(root, text="Prim's", command=lambda:generate_maze(1), font=("Helvetica", 16), padx=10, pady=5)
+    # prim_button.grid(row=4, column=0, columnspan=5, sticky="E")
     
-    kruskal_button = Button(root, text="Kruskal's", command=lambda:generate_maze(3), font=("Helvetica", 16), padx=10, pady=5)
-    kruskal_button.grid(row=5, column=0, columnspan=5, sticky="E")
+    # kruskal_button = Button(root, text="Kruskal's", command=lambda:generate_maze(3), font=("Helvetica", 16), padx=10, pady=5)
+    # kruskal_button.grid(row=5, column=0, columnspan=5, sticky="E")
 
     root.mainloop()
     
@@ -194,7 +194,7 @@ def hunt_and_kill_visualization(current_cell:Cell ,visited_count:list, cell_coun
     
 
 
-def running_config() -> list | None:
+def running_config() -> list or None:
     '''
     Function -- running_config
         config the maze UI to fit the screen

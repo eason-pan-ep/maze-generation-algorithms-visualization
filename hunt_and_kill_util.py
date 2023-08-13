@@ -5,7 +5,7 @@ global MOVING_DIRECTIONS  # 4 possible moving direction, up, down, left, right
 MOVING_DIRECTIONS = [(0, 1), (0, -1), (-1, 0), (1, 0)]
 
 
-def hunt_and_kill(main_grid:list, visited_status:list, current_cell:cell.Cell, grid_width:int) -> cell.Cell | None:
+def hunt_and_kill(main_grid:list, visited_status:list, current_cell:cell.Cell, grid_width:int) -> cell.Cell or None:
     '''
     Function -- hunt_and_kill 
         running hunt-and-kill algorithm to find the next cell to visit
@@ -43,7 +43,7 @@ def hunt_and_kill(main_grid:list, visited_status:list, current_cell:cell.Cell, g
 
 
 
-def find_next_start(grid_width:int, visited_status:list, main_grid:list) -> tuple | None:
+def find_next_start(grid_width:int, visited_status:list, main_grid:list) -> tuple or None:
     '''
     Function -- find_next_start
         go for the next cell that hasn't been visited, and it has at least one visited neighbour
@@ -68,7 +68,7 @@ def find_next_start(grid_width:int, visited_status:list, main_grid:list) -> tupl
                     
                     
 
-def has_visited_neighbours(current_cell:cell.Cell, visited_status:list, grid_width:int) -> None | tuple:
+def has_visited_neighbours(current_cell:cell.Cell, visited_status:list, grid_width:int) -> None or tuple:
     '''
         Function -- has_visited_neighbours 
             Helper method to check whether there is at least one visited neighbour around the given position
