@@ -13,6 +13,11 @@ For Prim's algorithm (turtle has been imported):
 - Open terminal, run 'python3 maze.py'.
 - Input an integer (the side length of the square maze the user wants).
 
+For Kruskal's Algorithm:
+- Go to the `kruskal` directory.
+- Run `main.py`.
+- Input `Width` and `Height` when prompted.
+
 ## Required Package
 Tkinter
 
