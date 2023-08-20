@@ -7,7 +7,11 @@
 - Implement visualizations of the maze generation and show how a maze is gradually generated
 
 ## How to Run
-get to the program's main directory in the terminal and run `python3 maze_generation_algorithms_visualization.py`.
+For Hunt-and-kill
+- get to the program's main directory in the terminal.
+- Run `python3 maze_generation_algorithms_visualization.py`.
+- Input `maze size` and `starting position` then click `hunt-and-kill`.
+- After running onece, you can click the `hunt-and-kill` button again to generate another maze.
 
 For Prim's algorithm (turtle has been imported):
 - Go to the `prims` directory.
