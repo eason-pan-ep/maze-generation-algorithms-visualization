@@ -8,7 +8,7 @@
 
 ## How to Run
 For Hunt-and-kill
-- get to the program's main directory in the terminal.
+- get to the program's hunt-and-kill directory in the terminal.
 - Run `python3 maze_generation_algorithms_visualization.py`.
 - Input `maze size` and `starting position` then click `hunt-and-kill`.
 - After running onece, you can click the `hunt-and-kill` button again to generate another maze.
@@ -27,4 +27,6 @@ For Kruskal's Algorithm:
 Tkinter
 
 ## Limitations
-- code is not yet optimized for error prevention and error handling 
+- code is not optimized for error prevention and error handling
+- Visualization modules work separately in different algorithms
+- The program is not designed in the best practice of MVC patter
